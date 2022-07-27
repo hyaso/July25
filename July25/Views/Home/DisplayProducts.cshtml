@@ -1,0 +1,25 @@
+﻿@model Products[]
+
+<h3>This is the product list page. There are @Model.Length products.</h3>
+
+<table>
+    <tr>
+        <th style="color: darkblue">Name</th>
+        <th style="color: darkblue">Description</th>
+        <th style="color: darkblue">Price</th>
+    </tr>
+    @{
+        foreach (var currProduct in @Model)
+        {
+            <tr>
+                <td><a href="ProductDetails?id=@currProduct.ID">@currProduct.Name</a></td>
+                <td>@currProduct.Description</td>
+                <td>$@currProduct.Price</td>
+            </tr>
+        }
+    }
+</table>
+<br />
+<br />
+<br />
+<a href="CreateNewProduct">Create a New Product</a>
